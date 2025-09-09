@@ -1,7 +1,7 @@
 import React from 'react';
 import FadeIn from './animations/FadeIn';
 import { Card } from './ui/card';
-import { Zap, Code2, GraduationCap } from 'lucide-react';
+import { Zap, Code2, GraduationCap, Trophy } from 'lucide-react';
 
 const ActivitiesSection = () => {
   const activities = [
@@ -18,20 +18,33 @@ const ActivitiesSection = () => {
     },
     {
       icon: <Code2 className="w-8 h-8" />,
-      title: "외주톤",
-      subtitle: "실제 클라이언트 프로젝트",
-      description: "실제 클라이언트의 프로젝트를 팀으로 수행합니다.\n프로젝트 수익은 기여도에 따라 공정하게 분배됩니다.",
+      title: "MVP톤",
+      subtitle: "창업팀과 함께하는 실전 개발",
+      description: "초기 창업팀의 비즈니스 아이템을 최소 기능 제품(MVP)으로 구현합니다.\n실제 시장 검증 가능한 서비스를 함께 만들어 창업 생태계 경험을 쌓습니다.",
       features: [
-        "MVP 개발 (2-4주)",
-        "웹/앱 서비스 구축",
-        "기술 컨설팅"
+        "MVP 프로토타입 개발 (2-3주)",
+        "핵심 기능 중심 구현",
+        "창업팀과 협업 진행",
+        "비즈니스 가치 검증"
+      ]
+    },
+    {
+      icon: <Trophy className="w-8 h-8" />,
+      title: "챌린지톤",
+      subtitle: "길드원의 소망 프로젝트를 함께 실현",
+      description: "길드원이 평소 만들고 싶었던 소망 프로젝트를 모두가 힘을 모아 구현합니다.\n혼자서는 벅찬 프로젝트도 함께라면 완성할 수 있습니다.",
+      features: [
+        "길드원 소망 프로젝트 선정",
+        "팀 단위 협업 개발 (3-4주)",
+        "역할 분담 및 멘토링",
+        "완성품까지 도전"
       ]
     },
     {
       icon: <GraduationCap className="w-8 h-8" />,
       title: "교육",
-      subtitle: "함께 배우고 나누는 성장",
-      description: "바이브코딩 기술과 문화를 함께 배우고 전파합니다.\n시니어의 노하우를 주니어에게 전수하는 선순환 구조입니다.",
+      subtitle: "지식 공유와 교육 툴킷 제작",
+      description: "바이브코딩 기술과 문화를 함께 배우고 전파합니다.\n일반인에게 바이브코딩을 쉽게 교육할 수 있는 툴킷을 제작합니다.",
       features: [
         "바이브코더 부트캠프",
         "기술 워크샵",
@@ -86,7 +99,8 @@ const ActivitiesSection = () => {
                     <div className="border-t border-gray-700 pt-4">
                       <p className="text-sm text-gray-400 mb-2">
                         {activity.title === "해커톤" && "주요 활동:"}
-                        {activity.title === "외주톤" && "프로젝트 범위:"}
+                        {activity.title === "MVP톤" && "프로젝트 범위:"}
+                        {activity.title === "챌린지톤" && "프로젝트 범위:"}
                         {activity.title === "교육" && "교육 프로그램:"}
                       </p>
                       <ul className="space-y-2">

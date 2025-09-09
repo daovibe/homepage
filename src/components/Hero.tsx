@@ -54,7 +54,7 @@ const Hero: React.FC<HeroProps> = ({
 
           {/* Declaration Dropdown */}
           <FadeIn delay={400}>
-            <div className="w-[110%] md:w-full max-w-2xl mx-auto mt-12 -ml-[5%] md:ml-0">
+            <div className="w-[110%] md:w-full max-w-2xl mx-auto mt-12 mb-16 md:mb-20 -ml-[5%] md:ml-0">
               <button
                 onClick={() => setIsDeclarationOpen(!isDeclarationOpen)}
                 className="w-full flex items-center justify-between p-4 md:p-6 bg-gray-100/50 hover:bg-gray-100/70 rounded-lg transition-all duration-300 group backdrop-blur-sm"

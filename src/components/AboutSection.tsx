@@ -50,8 +50,9 @@ const AboutSection = () => {
         {/* Main Description */}
         <FadeIn delay={100}>
           <p className="text-center text-lg md:text-xl text-gray-300 mb-16 max-w-3xl mx-auto font-serif">
-            길드원들이 자발적으로 모여, 바이브코딩을 주제로 해커톤·외주톤·교육을<br />
-            운영하는 프로젝트 중심 바이브코더 길드
+            다바코단 바이브코딩길드는 단순한 스터디 모임이 아닙니다.<br />
+            길드원들이 자발적으로 모여 미래의 일하는 방식과 조직 문화를 실험하며,<br />
+            새로운 협업 패러다임을 만들어가는 DAO 기반 길드입니다.
           </p>
         </FadeIn>
 
