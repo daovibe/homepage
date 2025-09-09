@@ -73,9 +73,9 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           <div>
             <h3 className="text-lg font-serif font-bold mb-4">연락처</h3>
             <div className="space-y-3">
-              <a href="mailto:contact@davacodan.com" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm">
+              <a href="mailto:daovibecodingguild@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm">
                 <Mail className="w-4 h-4" />
-                <span>contact@davacodan.com</span>
+                <span>daovibecodingguild@gmail.com</span>
               </a>
               <a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm">
                 <MessageCircle className="w-4 h-4" />
