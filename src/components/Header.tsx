@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { cn } from '@/lib/utils';
 import { NavLink } from 'react-router-dom';
 interface HeaderProps {
@@ -16,6 +17,18 @@ const Header: React.FC<HeaderProps> = ({
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
   const scrollToSection = (id: string) => {
     if (id === 'home') {
       window.scrollTo({
@@ -50,31 +63,51 @@ const Header: React.FC<HeaderProps> = ({
         </button>
       </div>
       
-      <div className={cn("fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 transition-transform duration-500 ease-in-out transform md:hidden", isMobileMenuOpen ? "translate-x-0" : "translate-x-full")}>
-        <button className="absolute top-5 right-5 p-2" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
-          <span className="block w-6 h-0.5 bg-foreground transform rotate-45 translate-y-0.5" />
-          <span className="block w-6 h-0.5 bg-foreground transform -rotate-45" />
-        </button>
-        
-        <nav className="flex flex-col space-y-6 text-lg">
+      {isMobileMenuOpen && ReactDOM.createPortal(
+        <div 
+          className="fixed inset-0 bg-white z-[99999]" 
+          style={{ 
+            backgroundColor: 'white',
+            position: 'fixed',
+            top: '0px',
+            left: '0px',
+            right: '0px',
+            bottom: '0px',
+            width: '100vw',
+            height: '100vh',
+            zIndex: 99999
+          }}
+        >
+          <div className="relative w-full h-full bg-white">
+            <button 
+              className="absolute top-5 right-5 p-2" 
+              onClick={() => setIsMobileMenuOpen(false)} 
+              aria-label="Close menu"
+            >
+              <span className="block w-6 h-0.5 bg-[#111111] transform rotate-45 translate-y-0.5" />
+              <span className="block w-6 h-0.5 bg-[#111111] transform -rotate-45" />
+            </button>
+            
+            <div className="pt-24 px-6 h-full overflow-y-auto bg-white">
+              <nav className="flex flex-col space-y-6 text-lg">
           <NavLink to="/" className={({
           isActive
-        }) => cn("hover:text-orangery-500 transition-colors", isActive && "text-orangery-500 font-semibold")} onClick={() => setIsMobileMenuOpen(false)}>
+        }) => cn("text-[#111111] hover:text-primary transition-colors", isActive && "text-primary font-semibold")} onClick={() => setIsMobileMenuOpen(false)}>
             Home
           </NavLink>
-            <button className="text-left hover:text-primary transition-colors" onClick={() => {
+            <button className="text-left text-[#111111] hover:text-primary transition-colors" onClick={() => {
           scrollToSection('about');
           setIsMobileMenuOpen(false);
         }}>
             비밀결사
           </button>
-          <button className="text-left hover:text-primary transition-colors" onClick={() => {
+          <button className="text-left text-[#111111] hover:text-primary transition-colors" onClick={() => {
           scrollToSection('activities');
           setIsMobileMenuOpen(false);
         }}>
             혁명의 길
           </button>
-          <button className="text-left hover:text-primary transition-colors" onClick={() => {
+          <button className="text-left text-[#111111] hover:text-primary transition-colors" onClick={() => {
           scrollToSection('history');
           setIsMobileMenuOpen(false);
         }}>
@@ -84,13 +117,17 @@ const Header: React.FC<HeaderProps> = ({
             href="https://modulabs.co.kr/community/momos/283" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-left hover:text-primary transition-colors"
+            className="text-left text-[#111111] hover:text-primary transition-colors"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             입단하기
           </a>
-        </nav>
-      </div>
+              </nav>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
     </header>;
 };
 interface NavLinksProps {
