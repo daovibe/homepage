@@ -9,7 +9,7 @@ const ActivitiesSection = () => {
       icon: <Zap className="w-8 h-8" />,
       title: "해커톤",
       subtitle: "빠르게 아이디어를 현실로",
-      description: "24-48시간 동안 아이디어를 실제 프로토타입으로 구현합니다.\n창의적인 도전과 빠른 실행력을 기를 수 있습니다.",
+      description: "6-8시간 동안 아이디어를 실제 프로토타입으로 구현합니다.\n창의적인 도전과 빠른 실행력을 기를 수 있습니다.",
       features: [
         "주제별 미니 해커톤 (월 1회)",
         "시즌 메인 해커톤 (시즌당 1회)",
